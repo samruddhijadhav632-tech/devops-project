@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: student-app
+spec:
+  type: ClusterIP
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 5000        # Matches Nginx upstream http://backend-service:5000
+      targetPort: 5000  # Matches Node.js container port 5000
